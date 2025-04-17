@@ -6,6 +6,11 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/configuration.nix
+      ../../modules/users.nix
+      ../../modules/locale.nix
+      ../../modules/terminal.nix
+      ../../modules/shell.nix
+      ../../modules/font.nix
     ];
 
   # Bootloader
@@ -14,15 +19,8 @@
   boot.loader.grub =
     {
       enable = true;
-      efiSupport = true;
-      device = "nodev";
-      useOSProber = false; # enable if dual booting
-      extraEntries = "
-        menuentry \"Windows\" --class windows --class os {\n
-          insmod ntfs\n
-          search --no-floppy --set=root --fs-uuid C236-4D6C\n
-          chainloader /efi/Microsoft/Boot/bootmgfw.efi\n
-        }";
+      device = "/dev/sda";
+      useOSProber = true; # enable if dual booting
     };
 
   networking.hostName = "nixos";

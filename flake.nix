@@ -16,7 +16,7 @@
 	      config.allowUnfree = true;
 	    };
 
-	    pkgs-stable = import nixpkgs-stable {
+	    pkgsStable = import nixpkgs-stable {
 	      inherit system;
 	      config.allowUnfree = true;
 	    };
@@ -24,7 +24,7 @@
 	  in nixpkgs.lib.nixosSystem {
 	    inherit system;
 	    specialArgs = {
-	      inherit pkgs pkgs-stable;
+	      inherit pkgs pkgsStable;
 	    };
 	    modules = [
 	       ./hosts/nixos

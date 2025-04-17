@@ -18,24 +18,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Set your time zone.
-  time.timeZone = "Europe/Vienna";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_AT.UTF-8";
-    LC_IDENTIFICATION = "de_AT.UTF-8";
-    LC_MEASUREMENT = "de_AT.UTF-8";
-    LC_MONETARY = "de_AT.UTF-8";
-    LC_NAME = "de_AT.UTF-8";
-    LC_NUMERIC = "de_AT.UTF-8";
-    LC_PAPER = "de_AT.UTF-8";
-    LC_TELEPHONE = "de_AT.UTF-8";
-    LC_TIME = "de_AT.UTF-8";
-  };
-
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
@@ -43,6 +25,12 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+
+  environment.plasma6.excludePackages = with pkgs; [
+    kdePackages.konsole
+    kdePackages.oxygen
+    kdePackages.oxygen-icons
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -75,17 +63,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.edgelordkirito = {
-    isNormalUser = true;
-    description = "edgelordkirito";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
-  };
-
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -95,13 +72,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    stow
-    zig
     go
-    unzip
+    kitty
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
