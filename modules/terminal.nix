@@ -12,6 +12,7 @@
     # move programming languages to their own module
     zig
     unzip
+    starship
   ];
 
   programs.neovim = {
@@ -21,7 +22,7 @@
     defaultEditor = true;
   };
 
-  programs.starship = {
-    enable = true;
-  };
+  #programs.starship = {
+  #  enable = true;
+  #};
 }
