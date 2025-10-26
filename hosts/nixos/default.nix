@@ -14,16 +14,11 @@
     ];
 
   # Bootloader
+
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.loader.grub =
-    {
-      enable = true;
-      device = "/dev/sda";
-      useOSProber = true; # enable if dual booting
-    };
-
-  networking.hostName = "nixos";
+  networking.hostName = "rotom";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -39,5 +34,5 @@
     };
   };
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 }

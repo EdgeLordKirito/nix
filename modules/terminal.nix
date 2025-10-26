@@ -5,10 +5,11 @@
     git
     yazi
     killall
-    rofi
+    # move programming languages to their own module
     go
     stow
     wl-clipboard
+    # move programming languages to their own module
     zig
     unzip
   ];
