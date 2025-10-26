@@ -1,11 +1,9 @@
-{ ... }:
+{ nixos-hardware , ... }:
 
 {
   imports =
     [
       # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      nixos-hardware.nixosModules.framework-amd-ai-300-series
       ../../modules/configuration.nix
       ../../modules/users.nix
       ../../modules/locale.nix

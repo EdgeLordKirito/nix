@@ -4,9 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+    nixos-hardware.url = "github:Nixos/nixos-hardware";
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, ... } @ inputs: {
+  outputs = { nixpkgs, nixpkgs-stable, nixos-hardware, ... } @ inputs: {
   	nixosConfigurations = {
 	  rotom = let
 	    system = "x86_64-linux";
@@ -28,6 +29,8 @@
 	    };
 	    modules = [
 	       ./hosts/rotom
+	       ./hosts/rotom/hardware-configuration.nix
+	       nixos-hardware.nixosModules.framework-amd-ai-300-series
 	    ];
 	  }; 
       	};
