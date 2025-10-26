@@ -27,7 +27,7 @@
 	      inherit pkgs pkgsStable;
 	    };
 	    modules = [
-	       ./hosts/nixos
+	       ./hosts/rotom
 	    ];
 	  }; 
       	};
