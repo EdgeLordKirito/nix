@@ -16,10 +16,13 @@
 	    #  inherit system;
 	    #  config.allowUnfree = true;
 	    #};
+	    nixpkgsConfig = {
+    	      allowUnfree = true;
+            };
 
 	    unstable = import nixpkgs-unstable {
 	      inherit system;
-	      config.allowUnfree = true;
+	      config = nixpkgsConfig;
 	    };
 
 	  in nixpkgs.lib.nixosSystem {
@@ -29,6 +32,7 @@
 	      inherit unstable;
 	    };
 	    modules = [
+	       { nixpkgs = {  inherit system; config = nixpkgsConfig; }; }
 	       ./hosts/rotom
 	       ./hosts/rotom/hardware-configuration.nix
 	       nixos-hardware.nixosModules.framework-amd-ai-300-series
