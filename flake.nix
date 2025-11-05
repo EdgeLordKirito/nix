@@ -2,30 +2,31 @@
   description = "Entry Flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixos-hardware.url = "github:Nixos/nixos-hardware";
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, nixos-hardware, ... } @ inputs: {
+  outputs = { nixpkgs, nixpkgs-unstable, nixos-hardware, ... } @ inputs: {
   	nixosConfigurations = {
 	  rotom = let
 	    system = "x86_64-linux";
 
-	    pkgs = import nixpkgs {
-	      inherit system;
-	      config.allowUnfree = true;
-	    };
+	    #pkgs = import nixpkgs {
+	    #  inherit system;
+	    #  config.allowUnfree = true;
+	    #};
 
-	    pkgsStable = import nixpkgs-stable {
+	    unstable = import nixpkgs-unstable {
 	      inherit system;
 	      config.allowUnfree = true;
 	    };
 
 	  in nixpkgs.lib.nixosSystem {
 	    inherit system;
+	    # https://www.reddit.com/r/NixOS/comments/1hwovqu/you_have_set_specialargspkgs_which_means_that/ 
 	    specialArgs = {
-	      inherit pkgs pkgsStable;
+	      inherit unstable;
 	    };
 	    modules = [
 	       ./hosts/rotom
