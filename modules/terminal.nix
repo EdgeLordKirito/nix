@@ -1,18 +1,23 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    # terminal emulator
+    kitty
+
+    # terminal programs
     wget
     git
     yazi
     killall
-    # move programming languages to their own module
-    go
     stow
     wl-clipboard
-    # move programming languages to their own module
-    zig
     unzip
     starship
+
+    # move programming languages to their own module
+    go
+    # move programming languages to their own module
+    zig
   ];
 
   programs.neovim = {
@@ -21,8 +26,4 @@
     vimAlias = true;
     defaultEditor = true;
   };
-
-  #programs.starship = {
-  #  enable = true;
-  #};
 }
