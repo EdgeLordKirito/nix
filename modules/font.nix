@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 {
   fonts.packages = with pkgs; [
     pkgs.nerd-fonts.fira-code

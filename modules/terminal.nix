@@ -1,9 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 {
   environment.systemPackages = with pkgs; [
     # terminal emulator
     kitty
-
     # terminal programs
     wget
     git
