@@ -33,6 +33,8 @@
     };
   };
 
+  services.fprintd.enable = true;
+
   nix.optimise.automatic = true;
 
   nix.gc = {
