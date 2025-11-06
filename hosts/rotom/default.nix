@@ -21,6 +21,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  #networking.networkmanager.wifi.backend = "iwd";
 
   # enables support for Bluetooth
   hardware.bluetooth.enable = true;
