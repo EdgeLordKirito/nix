@@ -1,1 +1,1 @@
-KDE Wallet has to be unlocked for WIFI after fingerprint sensor is enabled
+if fingerprint support is enabled the system is set into like a more secure mode example it requires unlocking of kdewallet for network connection
