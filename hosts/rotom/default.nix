@@ -34,7 +34,7 @@
     };
   };
 
-  #services.fprintd.enable = true;
+  services.fprintd.enable = false;
 
   nix.optimise.automatic = true;
 
