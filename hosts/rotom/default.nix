@@ -10,6 +10,7 @@
       ../../modules/terminal.nix
       ../../modules/shell.nix
       ../../modules/font.nix
+      ../../modules/dev.nix
     ];
 
   # Bootloader
