@@ -2,8 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     # Tools
-    # Use FHS variant for better compatibility with extensions and system tools
-    vscode-fhs
 
     # ===============================
     # dotnet
@@ -31,6 +29,13 @@
     # ===============================
     zig
   ];
+
+  programs.vscode = {
+    enable = true;
+    # Use FHS variant for better compatibility with extensions and system tools
+    package = pkgs.vscode-fhs;
+  };
+
 
   programs.java = {
     enable = true;
