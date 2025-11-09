@@ -12,11 +12,6 @@
     wl-clipboard
     unzip
     starship
-
-    # move programming languages to their own module
-    go
-    # move programming languages to their own module
-    zig
   ];
 
   programs.neovim = {
