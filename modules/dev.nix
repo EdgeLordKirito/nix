@@ -22,8 +22,8 @@
     # Go
     # ===============================
     go
-    gopls
-    delve
+    unstable.gopls
+    unstable.delve
     golangci-lint
 
     # ===============================
