@@ -1,7 +1,7 @@
 { config, pkgs, unstable, ... }:
 {
   environment.systemPackages = with pkgs; [
-    unstable.proton-pass
+    openvpn3
     unstable.protonvpn-gui
   ];
 }
