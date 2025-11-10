@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     # Tools
     # Use FHS variant for better compatibility with extensions and system tools
-    vscode-fhs
+    unstable.vscode-fhs
 
     # ===============================
     # dotnet
