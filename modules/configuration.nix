@@ -71,6 +71,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     unstable.proton-pass
+    unstable.bitwarden-desktop
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
