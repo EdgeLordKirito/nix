@@ -11,7 +11,7 @@
       ../../modules/shell.nix
       ../../modules/font.nix
       ../../modules/dev.nix
-      ../../modules/proton.nix
+      ../../modules/vpn.nix
     ];
 
   # Bootloader
