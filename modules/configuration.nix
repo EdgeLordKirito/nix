@@ -72,6 +72,7 @@
   environment.systemPackages = with pkgs; [
     unstable.proton-pass
     unstable.bitwarden-desktop
+    unstable.obsidian
 
   ];
 
