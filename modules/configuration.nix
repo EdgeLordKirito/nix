@@ -71,6 +71,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     unstable.bitwarden-desktop
+    unstable.bitwarden-cli
     unstable.obsidian
 
   ];
