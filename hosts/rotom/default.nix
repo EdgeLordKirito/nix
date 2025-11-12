@@ -11,6 +11,7 @@
       ../../modules/shell.nix
       ../../modules/font.nix
       ../../modules/dev.nix
+      ../../modules/de.nix
       ../../modules/vpn.nix
     ];
 
