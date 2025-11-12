@@ -45,4 +45,13 @@
   };
 
   programs.nix-ld.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    daemon.settings = {
+      dns = ["8.8.8.8" "8.8.4.4"];
+    }
+  }
+
+  users.extraGroups.docker.members = ["edgelordkirito"];
 }
