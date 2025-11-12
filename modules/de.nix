@@ -4,7 +4,7 @@
   ];
 
   environment.variables = {
-    XKB_DEFAULT_OPTIONS = "compose:ralt,terminate:ctrl_alt_bksp";
+    XKB_DEFAULT_OPTIONS = "compose:lv3,terminate:ctrl_alt_bksp";
   };
 
 }
