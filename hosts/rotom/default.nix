@@ -13,6 +13,8 @@
       ../../modules/dev.nix
       ../../modules/de.nix
       ../../modules/vpn.nix
+
+      ../../modules/bs.nix
     ];
 
   # Bootloader
