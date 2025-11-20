@@ -45,6 +45,7 @@
     # C
     # ===============================
     libgcc
+    libxcrypt
   ];
 
   programs.java = {
