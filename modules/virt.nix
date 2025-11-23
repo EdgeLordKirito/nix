@@ -10,4 +10,5 @@
 
   # Optional: Add your user to the vboxusers group
   users.users.edgelordkirito.extraGroups = [ "vboxusers" ];
+  users.users.edgelordkirito.extraGroups = [ "vms" ];
 }
