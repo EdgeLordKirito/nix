@@ -13,7 +13,7 @@
       ../../modules/dev.nix
       ../../modules/de.nix
       ../../modules/vpn.nix
-      ../../modules/virtHost.nix
+      ../../modules/config.nix
 
       ../../modules/bs.nix
     ];
