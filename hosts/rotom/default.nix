@@ -23,6 +23,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  services.power-profiles-daemon.enable = true;
+  services.tlp.enable = false;
+
   networking.hostName = "rotom";
 
   # Enable networking
