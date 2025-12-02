@@ -9,6 +9,7 @@ let
   # Internal defaults
   defaults = {
     enabled = false;
+    enabledOnBoot = false;
     users   = [];
     dns     = ["8.8.8.8"];
   };
@@ -22,7 +23,10 @@ let
   cfg = lib.recursiveUpdate defaults dockerConfig;
 in
 lib.mkIf cfg.enabled {
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = cfg.enabledOnBoot;
+  };
 
   virtualisation.docker.daemon.settings = {
     dns = cfg.dns;
