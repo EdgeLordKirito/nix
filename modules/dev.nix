@@ -42,8 +42,10 @@
     unstable.jetbrains.datagrip
 
     # ===============================
-    # C
+    #
     # ===============================
+
+    ffmpeg_6
   ];
 
   programs.java = {
