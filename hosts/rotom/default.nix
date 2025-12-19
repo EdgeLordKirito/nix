@@ -44,6 +44,7 @@
   };
 
   services.fprintd.enable = false;
+  programs.ssh.startAgent = true;
 
   nix.optimise.automatic = true;
 
