@@ -8,7 +8,7 @@
     # ===============================
     # dotnet
     # ===============================
-    dotnetCorePackages.sdk_9_0
+    dotnetCorePackages.sdk_10_0
     ilspycmd
 
     # ===============================
@@ -56,8 +56,8 @@
   environment.variables = {
     JAVA_17_HOME = "${pkgs.jdk17.home}";
     JAVA_8_HOME  = "${pkgs.jdk8.home}";
-    DOTNET_BIN = "${pkgs.dotnetCorePackages.sdk_9_0}/bin/dotnet";
-    DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_9_0}/share/dotnet";
+    DOTNET_BIN = "${pkgs.dotnetCorePackages.sdk_10_0}/bin/dotnet";
+    DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet";
   };
 
   programs.nix-ld.enable = true;
