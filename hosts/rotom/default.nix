@@ -14,8 +14,7 @@
       ../../modules/de.nix
       ../../modules/vpn.nix
       ../../modules/config.nix
-
-      ../../modules/bs.nix
+      ../../modules/art.nix
     ];
 
   # Bootloader
