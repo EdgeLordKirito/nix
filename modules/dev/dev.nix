@@ -14,9 +14,8 @@
     # ===============================
     # Java
     # ===============================
-    jdk17
-    jdk8
-    jdk25
+#    jdk17
+#    jdk8
     gradle
 
     # ===============================
@@ -49,14 +48,8 @@
     ffmpeg_6
   ];
 
-  programs.java = {
-    enable = true;
-    package = pkgs.jdk17;
-  };
 
   environment.variables = {
-    JAVA_17_HOME = "${pkgs.jdk17.home}";
-    JAVA_8_HOME  = "${pkgs.jdk8.home}";
     DOTNET_BIN = "${pkgs.dotnetCorePackages.sdk_10_0}/bin/dotnet";
     DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet";
   };

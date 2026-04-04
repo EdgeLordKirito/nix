@@ -10,11 +10,12 @@
       ../../modules/terminal.nix
       ../../modules/shell.nix
       ../../modules/font.nix
-      ../../modules/dev.nix
+      #../../modules/dev.nix
       ../../modules/de.nix
       ../../modules/vpn.nix
       ../../modules/virtualisationConfig.nix
       ../../modules/art.nix
+      ../../modules/dev
     ];
 
   # Bootloader
