@@ -5,31 +5,20 @@ with lib;
 let
   cfg = config.programs.javaSdks;
 
-  # Extract version from jdk-style package names (e.g. jdk17, jdk17_headless)
-  getVersion = pkg:
-    let
-      name = pkg.pname or (lib.getName pkg);
-      match = builtins.match "jdk([0-9]+).*" name;
-    in
-      if match != null then builtins.elemAt match 0
-      else throw "Package ${name} is not a supported jdk package (expected format: jdk<version>)";
-
   # Generate ENV vars like JAVA_17_HOME
   mkEnvVars = pkgsList:
     listToAttrs (map (pkg:
-      let v = getVersion pkg;
-      in {
-        name = "JAVA_${v}_HOME";
-        value = "${pkg}";
+      {
+        name = "JAVA_${pkg.version}_HOME";
+        value = "${pkg.home}";
       }
     ) pkgsList);
 
   # Generate aliases like java17
   mkAliases = pkgsList:
     listToAttrs (map (pkg:
-      let v = getVersion pkg;
-      in {
-        name = "java${v}";
+      {
+        name = "java${pkg.version}";
         value = "${pkg}/bin/java";
       }
     ) pkgsList);
