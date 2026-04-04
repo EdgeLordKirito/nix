@@ -21,7 +21,7 @@
       pkgs.jdk21
     ];
 
-    createEnvVars = true;
-    createAliases = true;
+    createEnvVars = false;
+    createAliases = false;
   };
 }
