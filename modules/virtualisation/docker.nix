@@ -33,6 +33,6 @@ in
     users.extraGroups.docker.members = cfg.users;
 
     # Merge extra options
-    virtualisation.docker = lib.recursiveUpdate virtualisation.docker cfg.dockerOpts;
+    virtualisation.docker = lib.mkMerge [ virtualisation.docker cfg.dockerOpts ];
   };
 }

@@ -55,6 +55,6 @@ in
     users.extraGroups.vboxusers.members = cfg.users;
 
     # Merge extra arbitrary overrides
-    virtualisation.virtualbox = lib.recursiveUpdate virtualisation.virtualbox cfg.virtualboxOpts;
+    virtualisation.virtualbox = lib.mkMerge [ virtualisation.virtualbox cfg.virtualboxOpts ];
   };
 }

@@ -41,7 +41,7 @@ in
     users.extraGroups.libvirtd.members = cfg.users;
 
     # Merge extra arbitrary overrides
-    virtualisation.libvirtd = lib.recursiveUpdate virtualisation.libvirtd cfg.libvirtdOpts;
+    virtualisation.libvirtd = lib.mkMerge [ virtualisation.libvirtd cfg.libvirtdOpts ];
   };
 }
 
