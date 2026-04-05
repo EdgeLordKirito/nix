@@ -30,7 +30,7 @@ in
         enableOnBoot = cfg.enableOnBoot;
         daemon.settings.dns = cfg.dns;
       }
-      cfg.dockerOpt
+      cfg.dockerOpts
     ];
     users.extraGroups.docker.members = cfg.users;
   };
