@@ -8,7 +8,7 @@
     # ===============================
     # dotnet
     # ===============================
-    dotnetCorePackages.sdk_10_0
+#    dotnetCorePackages.sdk_10_0
     ilspycmd
 
     # ===============================
@@ -49,10 +49,10 @@
   ];
 
 
-  environment.variables = {
-    DOTNET_BIN = "${pkgs.dotnetCorePackages.sdk_10_0}/bin/dotnet";
-    DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet";
-  };
+#  environment.variables = {
+#    DOTNET_BIN = "${pkgs.dotnetCorePackages.sdk_10_0}/bin/dotnet";
+#    DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet";
+#  };
 
   programs.nix-ld.enable = true;
 
