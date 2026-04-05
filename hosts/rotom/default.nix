@@ -16,6 +16,7 @@
       ../../modules/virtualisationConfig.nix
       ../../modules/art.nix
       ../../modules/dev
+      ./config/javaSdksConf.nix
     ];
 
   # Bootloader
