@@ -33,15 +33,17 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    virtualisation.libvirtd.enable = true;
+    virtualisation.libvirtd = lib.mkMerge [
+      {
+        enable = cfg.enable;
+      }
+      cfg.libvirtdOpts
+    ];
 
-    programs.virt-manager.enable = true;
+    programs.virt-manager.enable = cfg.enable;
 
     # Add users to the libvirtd group
     users.extraGroups.libvirtd.members = cfg.users;
-
-    # Merge extra arbitrary overrides
-    virtualisation.libvirtd = lib.mkMerge [ virtualisation.libvirtd cfg.libvirtdOpts ];
   };
 }
 

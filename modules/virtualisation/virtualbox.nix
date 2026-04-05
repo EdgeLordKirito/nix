@@ -47,14 +47,19 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    virtualisation.virtualbox = lib.mkMerge [
+      {
+        host.enable = true;
+	host.enableKvm = cfg.enableKvm;
+	host.addNetworkInterface = cfg.addNetworkInterface;
+      }
+      cfg.virtualboxOpts
+    ];
     virtualisation.virtualbox.host.enable           = true;
     virtualisation.virtualbox.host.enableKvm       = cfg.enableKvm;
     virtualisation.virtualbox.host.addNetworkInterface = cfg.addNetworkInterface;
 
     # Add users to vboxusers
     users.extraGroups.vboxusers.members = cfg.users;
-
-    # Merge extra arbitrary overrides
-    virtualisation.virtualbox = lib.mkMerge [ virtualisation.virtualbox cfg.virtualboxOpts ];
   };
 }

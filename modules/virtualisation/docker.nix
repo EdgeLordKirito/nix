@@ -24,15 +24,14 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    virtualisation.docker.enable        = cfg.enable;
-    virtualisation.docker.enableOnBoot  = cfg.enableOnBoot;
-    virtualisation.docker.daemon.settings = {
-      dns = cfg.dns;
-    };
-
+    virtualisation.docker = lib.mkMerge [
+      {
+        enable = cfg.enable;
+        enableOnBoot = cfg.enableOnBoot;
+        daemon.settings.dns = cfg.dns;
+      }
+      cfg.dockerOpt
+    ];
     users.extraGroups.docker.members = cfg.users;
-
-    # Merge extra options
-    virtualisation.docker = lib.mkMerge [ virtualisation.docker cfg.dockerOpts ];
   };
 }
