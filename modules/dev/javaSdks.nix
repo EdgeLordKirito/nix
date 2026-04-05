@@ -5,24 +5,45 @@ with lib;
 let
   cfg = config.programs.javaSdks;
 
+  pkgInfoString = pkg:
+  let
+    pname = pkg.pname or "unknown";
+    name = pkg.name or "unknown";
+  in
+    "(pname: ${pname}, name: ${name})";
+
+  getMajorVersion = pkg:
+  let
+    version = pkg.version or "unknown";
+    pname = pkg.pname or "unknown";
+    name = pkg.name or "unknown";
+
+    match = builtins.match "^([0-9]+).*" version;
+  in
+    if match == null then
+      throw "javaSdks: Could not extract major version from ${version} provided by package ${pkgInfoString pkg}"
+    else
+      builtins.elemAt match 0;
+
   # Generate ENV vars like JAVA_17_HOME
   mkEnvVars = pkgsList:
     listToAttrs (map (pkg:
-      {
-        name = "JAVA_${pkg.version}_HOME";
-        value = "${pkg.home}";
+      let v = getMajorVersion pkg;
+      in {
+        name = "JAVA_${v}_HOME";
+        value = pkg.home or (throw "javaSdks: Package ${pkgInfoString pkg} has no 'home' attribute");
       }
     ) pkgsList);
 
   # Generate aliases like java17
   mkAliases = pkgsList:
     listToAttrs (map (pkg:
-      {
-        name = "java${pkg.version}";
+      let v = getMajorVersion pkg;
+      in {
+        name = "java${v}";
         value = "${pkg}/bin/java";
       }
     ) pkgsList);
-
 in
 {
   options.programs.javaSdks = {
