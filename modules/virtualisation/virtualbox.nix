@@ -55,10 +55,6 @@ in
       }
       cfg.virtualboxOpts
     ];
-    virtualisation.virtualbox.host.enable           = true;
-    virtualisation.virtualbox.host.enableKvm       = cfg.enableKvm;
-    virtualisation.virtualbox.host.addNetworkInterface = cfg.addNetworkInterface;
-
     # Add users to vboxusers
     users.extraGroups.vboxusers.members = cfg.users;
   };
