@@ -16,8 +16,6 @@
 
     extraJavaPackages = [
       pkgs.jdk8
-      pkgs.jdk11
-      pkgs.jdk21
     ];
 
     createEnvVars = true;
