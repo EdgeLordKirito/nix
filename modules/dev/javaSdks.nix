@@ -64,13 +64,19 @@ in
     createEnvVars = mkOption {
       type = types.bool;
       default = true;
-      description = "Create JAVA_<VERSION>_HOME environment variables";
+      description = ''
+        Create JAVA_<VERSION>_HOME environment variables for all extra Java packages.
+        Note: these variables are applied system-wide and require a reboot or a new login shell to be visible.
+      '';
     };
 
     createAliases = mkOption {
       type = types.bool;
       default = true;
-      description = "Create java<VERSION> shell aliases";
+      description = ''
+        Create java<VERSION> shell aliases pointing to the JVM executables.
+        Note: aliases are injected into login shells and require a reboot or a new login shell to take effect.
+      '';
     };
   };
 
