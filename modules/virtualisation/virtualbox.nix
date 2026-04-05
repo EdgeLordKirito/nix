@@ -1,26 +1,60 @@
-{ config, pkgs, lib, unstable ? pkgs, virtualboxConfig ? {}, ... }:
+{ config, pkgs, lib, ... }:
 
 let
-  # Defaults
+  # Shortcut to host config
+  cfg = config.edgelordkirito.virtualisation.virtualbox;
+
+  # Internal defaults
   defaults = {
-    enabled = false;
-    users   = [];
+    enable        = false;
+    users         = [];
+    enableKvm     = true;
+    addNetworkInterface = false;
+    virtualboxOpts = {};     # optional overrides for the NixOS virtualbox module
+  };
+in
+{
+  options.edgelordkirito.virtualisation.virtualbox = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = defaults.enable;
+      description = "Enable VirtualBox host module";
+    };
+
+    users = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = defaults.users;
+      description = "Users to add to the vboxusers group";
+    };
+
+    enableKvm = lib.mkOption {
+      type = lib.types.bool;
+      default = defaults.enableKvm;
+      description = "Enable KVM support in VirtualBox host";
+    };
+
+    addNetworkInterface = lib.mkOption {
+      type = lib.types.bool;
+      default = defaults.addNetworkInterface;
+      description = "Whether to add a network interface in VirtualBox host";
+    };
+
+    virtualboxOpts = lib.mkOption {
+      type = lib.types.attrs;
+      default = defaults.virtualboxOpts;
+      description = "Extra overrides for the virtualisation.virtualbox module";
+    };
   };
 
-  # Merge user config with defaults
-  # Example:
-  #   defaults       = { enabled = false; users = []; }
-  #   virtualboxConfig = { enabled = true; users = ["myuser"]; }
-  #   -------------------------> merged cfg
-  #   cfg            = { enabled = true; users = ["myuser"]; }
-  cfg = lib.recursiveUpdate defaults virtualboxConfig;
-in
-lib.mkIf cfg.enabled {
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableKvm = true;
-  virtualisation.virtualbox.host.addNetworkInterface = false;
+  config = lib.mkIf cfg.enable {
+    virtualisation.virtualbox.host.enable           = true;
+    virtualisation.virtualbox.host.enableKvm       = cfg.enableKvm;
+    virtualisation.virtualbox.host.addNetworkInterface = cfg.addNetworkInterface;
 
-  # Add users to the vboxusers group
-  users.extraGroups.vboxusers.members = cfg.users;
+    # Add users to vboxusers
+    users.extraGroups.vboxusers.members = cfg.users;
+
+    # Merge extra arbitrary overrides
+    virtualisation.virtualbox = lib.recursiveUpdate virtualisation.virtualbox cfg.virtualboxOpts;
+  };
 }
-

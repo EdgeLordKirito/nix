@@ -13,10 +13,11 @@
       #../../modules/dev.nix
       ../../modules/de.nix
       ../../modules/vpn.nix
-      ../../modules/virtualisationConfig.nix
+      #../../modules/virtualisationConfig.nix
       ../../modules/art.nix
       ../../modules/dev
-      ./config/javaSdksConf.nix
+      ./config/developmentConf.nix
+      ./config/virtualisationConf.nix
     ];
 
   # Bootloader

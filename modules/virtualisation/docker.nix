@@ -1,37 +1,38 @@
-{ config,
-  pkgs,
-  lib,
-  dockerConfig ? {},
-  ...
-}:
+{ config, pkgs, lib, ... }:
 
 let
-  # Internal defaults
+  # local shortcut for host options
+  cfg = config.edgelordkirito.virtualisation.docker;
+
+  # defaults for internal use
   defaults = {
-    enabled = false;
-    enabledOnBoot = false;
-    users   = [];
-    dns     = ["8.8.8.8"];
+    enable       = false;
+    enableOnBoot = false;
+    users        = [];
+    dns          = ["8.8.8.8"];
+    dockerOpts   = {}; # optional extra overrides
   };
 
-  # Merge user config into defaults
-  # Example:
-  #   defaults       = { enabled = false; users = []; dns = ["8.8.8.8"]; }
-  #   dockerConfig   = { enabled = true; users = ["myuser"]; }
-  #   ----------------------------> merged cfg
-  #   cfg            = { enabled = true; users = ["myuser"]; dns = ["8.8.8.8"]; }
-  cfg = lib.recursiveUpdate defaults dockerConfig;
 in
-lib.mkIf cfg.enabled {
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = cfg.enabledOnBoot;
+{
+  options.edgelordkirito.virtualisation.docker = {
+    enable       = lib.mkOption { type = lib.types.bool; default = defaults.enable; description = "Enable Docker"; };
+    enableOnBoot = lib.mkOption { type = lib.types.bool; default = defaults.enableOnBoot; description = "Start Docker on boot"; };
+    users        = lib.mkOption { type = lib.types.listOf lib.types.str; default = defaults.users; description = "Users to add to docker group"; };
+    dns          = lib.mkOption { type = lib.types.listOf lib.types.str; default = defaults.dns; description = "DNS servers for Docker daemon"; };
+    dockerOpts   = lib.mkOption { type = lib.types.attrs; default = defaults.dockerOpts; description = "Extra overrides for virtualisation.docker"; };
   };
 
-  virtualisation.docker.daemon.settings = {
-    dns = cfg.dns;
-  };
+  config = lib.mkIf cfg.enable {
+    virtualisation.docker.enable        = cfg.enable;
+    virtualisation.docker.enableOnBoot  = cfg.enableOnBoot;
+    virtualisation.docker.daemon.settings = {
+      dns = cfg.dns;
+    };
 
-  # Add users to the docker group
-  users.extraGroups.docker.members = cfg.users;
+    users.extraGroups.docker.members = cfg.users;
+
+    # Merge extra options
+    virtualisation.docker = lib.recursiveUpdate virtualisation.docker cfg.dockerOpts;
+  };
 }
