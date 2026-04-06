@@ -31,6 +31,7 @@
       ./config/systemPackages.nix
       ./config/toucheggConf.nix
       ./config/firefoxConf.nix
+      ./config/localeConf.nix
     ];
 
   # Bootloader
