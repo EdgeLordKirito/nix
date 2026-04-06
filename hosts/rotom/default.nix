@@ -22,6 +22,7 @@
       ./config/bootConf.nix
       ./config/powerConf.nix
       ./config/networkConf.nix
+      ./config/bluetoothConf.nix
     ];
 
   # Bootloader
@@ -39,15 +40,15 @@
   #networking.networkmanager.wifi.backend = "iwd";
 
   # enables support for Bluetooth
-  hardware.bluetooth.enable = true;
+  #hardware.bluetooth.enable = true;
   # powers up the default Bluetooth controller on boot
-  hardware.bluetooth.powerOnBoot = true;
+  #hardware.bluetooth.powerOnBoot = true;
   # allow reading device charge
-  hardware.bluetooth.settings = {
-    General = {
-      Experimental = true;
-    };
-  };
+  #hardware.bluetooth.settings = {
+  #  General = {
+  #    Experimental = true;
+  #  };
+  #};
 
   services.fprintd.enable = false;
   programs.ssh.startAgent = true;
