@@ -19,6 +19,8 @@
       ./config/developmentConf.nix
       ./config/virtualisationConf.nix
       ./config/fontConf.nix
+      ./config/bootConf.nix
+      ./config/powerConf.nix
     ];
 
   # Bootloader
@@ -26,8 +28,8 @@
   #boot.loader.systemd-boot.enable = true;
   #boot.loader.efi.canTouchEfiVariables = true;
 
-  services.power-profiles-daemon.enable = true;
-  services.tlp.enable = false;
+  #services.power-profiles-daemon.enable = true;
+  #services.tlp.enable = false;
 
   networking.hostName = "rotom";
 
