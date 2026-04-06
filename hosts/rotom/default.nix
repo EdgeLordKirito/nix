@@ -23,6 +23,7 @@
       ./config/powerConf.nix
       ./config/networkConf.nix
       ./config/bluetoothConf.nix
+      ./config/fingerPrintConf.nix
     ];
 
   # Bootloader
@@ -50,7 +51,7 @@
   #  };
   #};
 
-  services.fprintd.enable = false;
+  #services.fprintd.enable = false;
   programs.ssh.startAgent = true;
 
   nix.optimise.automatic = true;
