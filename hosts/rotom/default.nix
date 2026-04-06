@@ -26,6 +26,8 @@
       ./config/fingerPrintConf.nix
       ./config/sshConf.nix
       ./config/nixConf.nix
+      ./config/printerConf.nix
+      ./config/audioConf.nix
     ];
 
   # Bootloader
