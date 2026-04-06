@@ -28,6 +28,9 @@
       ./config/nixConf.nix
       ./config/printerConf.nix
       ./config/audioConf.nix
+      ./config/systemPackages.nix
+      ./config/toucheggConf.nix
+      ./config/firefoxConf.nix
     ];
 
   # Bootloader

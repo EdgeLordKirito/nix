@@ -44,7 +44,7 @@
 
   # Enable sound with pipewire.
   #services.pulseaudio.enable = false;
-  services.touchegg.enable = true;
+  #services.touchegg.enable = true;
   #security.rtkit.enable = true;
   #services.pipewire = {
   #  enable = true;
@@ -63,17 +63,17 @@
   # services.xserver.libinput.enable = true;
 
   # Install firefox.
-  programs.firefox.enable = true;
+  #programs.firefox.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    unstable.bitwarden-desktop
-    unstable.bitwarden-cli
-    obsidian
-    touchegg
-    element-desktop
-  ];
+  #environment.systemPackages = with pkgs; [
+  #  unstable.bitwarden-desktop
+  #  unstable.bitwarden-cli
+  #  obsidian
+  #  touchegg
+  #  element-desktop
+  #];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
