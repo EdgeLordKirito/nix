@@ -5,5 +5,5 @@
     pkgs.nerd-fonts.jetbrains-mono
   ];
 
-  fonts.fonctconfig.useEmbeddedBitmaps = true;
+  fonts.fontconfig.useEmbeddedBitmaps = true;
 }
