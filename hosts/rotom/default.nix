@@ -32,6 +32,8 @@
       ./config/toucheggConf.nix
       ./config/firefoxConf.nix
       ./config/localeConf.nix
+      ./config/zshConf.nix
+      ./config/shellEnvironmentConf.nix
     ];
 
   # Bootloader
