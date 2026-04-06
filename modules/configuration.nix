@@ -10,7 +10,7 @@
     ];
 
   # Bootloader.
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  #nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -44,7 +44,7 @@
 
   # Enable sound with pipewire.
   #services.pulseaudio.enable = false;
-  #services.touchegg.enable = true;
+  services.touchegg.enable = true;
   #security.rtkit.enable = true;
   #services.pipewire = {
   #  enable = true;

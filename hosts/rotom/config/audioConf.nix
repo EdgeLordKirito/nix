@@ -2,7 +2,6 @@
 {
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
-  services.touchegg.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
