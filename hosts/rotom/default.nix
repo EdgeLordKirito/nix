@@ -21,6 +21,7 @@
       ./config/fontConf.nix
       ./config/bootConf.nix
       ./config/powerConf.nix
+      ./config/networkConf.nix
     ];
 
   # Bootloader
@@ -31,10 +32,10 @@
   #services.power-profiles-daemon.enable = true;
   #services.tlp.enable = false;
 
-  networking.hostName = "rotom";
+  #networking.hostName = "rotom";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  #networking.networkmanager.enable = true;
   #networking.networkmanager.wifi.backend = "iwd";
 
   # enables support for Bluetooth
