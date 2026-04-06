@@ -25,6 +25,7 @@
       ./config/bluetoothConf.nix
       ./config/fingerPrintConf.nix
       ./config/sshConf.nix
+      ./config/nixConf.nix
     ];
 
   # Bootloader
@@ -55,13 +56,13 @@
   #services.fprintd.enable = false;
   #programs.ssh.startAgent = true;
 
-  nix.optimise.automatic = true;
+  #nix.optimise.automatic = true;
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
+  #nix.gc = {
+  #  automatic = true;
+  #  dates = "weekly";
+  #  options = "--delete-older-than 30d";
+  #};
 
 
   system.stateVersion = "25.05";
