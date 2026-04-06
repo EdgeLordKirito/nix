@@ -9,7 +9,7 @@
       ../../modules/locale.nix
       ../../modules/terminal.nix
       ../../modules/shell.nix
-      ../../modules/font.nix
+      #../../modules/font.nix
       #../../modules/dev.nix
       ../../modules/de.nix
       ../../modules/vpn.nix
@@ -18,6 +18,7 @@
       ../../modules/dev
       ./config/developmentConf.nix
       ./config/virtualisationConf.nix
+      ./config/fontConf.nix
     ];
 
   # Bootloader
