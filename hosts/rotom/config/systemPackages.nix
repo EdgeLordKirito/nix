@@ -5,5 +5,14 @@
     unstable.bitwarden-cli
     obsidian
     element-desktop
+    kitty
+    wget
+    git
+    yazi
+    killall
+    stow
+    wl-clipboard
+    unzip
+    starship
   ];
 }

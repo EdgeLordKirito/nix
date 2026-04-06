@@ -8,6 +8,7 @@
   imports = [
     ../../../modules/dev/javaSdks.nix
     ../../../modules/dev/dotnetSdks.nix
+    ../../../modules/dev/neovim.nix
   ];
 
   programs.javaSdks = {
