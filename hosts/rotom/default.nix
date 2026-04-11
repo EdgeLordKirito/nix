@@ -34,6 +34,7 @@
       ./config/localeConf.nix
       ./config/zshConf.nix
       ./config/shellEnvironmentConf.nix
+      ./config/vpnConf.nix
     ];
 
   # Bootloader
