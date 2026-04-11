@@ -5,6 +5,7 @@
     unstable.bitwarden-cli
     obsidian
     element-desktop
+    krita
     kitty
     wget
     git
