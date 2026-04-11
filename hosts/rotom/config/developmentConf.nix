@@ -33,4 +33,54 @@
       pkgs.dotnetCorePackages.sdk_9_0
     ];
   };
+
+  programs.nix-ld.enable = true;
+
+  networking.firewall.allowedTCPPorts = [ 9003 ];
+
+
+  environment.systemPackages = with pkgs; [
+    # Tools
+    # Use FHS variant for better compatibility with extensions and system tools
+    unstable.vscode-fhs
+
+    # ===============================
+    # dotnet
+    # ===============================
+    ilspycmd
+
+    # ===============================
+    # Java
+    # ===============================
+    gradle
+
+    # ===============================
+    # Go
+    # ===============================
+    go
+    unstable.gopls
+    unstable.delve
+    golangci-lint
+
+    # ===============================
+    # Zig
+    # ===============================
+    zig
+
+    # ===============================
+    # JS
+    # ===============================
+    nodejs_24
+
+    # ===============================
+    # SQL
+    # ===============================
+    unstable.jetbrains.datagrip
+
+    # ===============================
+    #
+    # ===============================
+
+    ffmpeg_6
+  ]
 }
