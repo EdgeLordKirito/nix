@@ -35,6 +35,8 @@
       ./config/zshConf.nix
       ./config/shellEnvironmentConf.nix
       ./config/vpnConf.nix
+      ./config/keyboardConf.nix
+      ./config/desktopEnvironmentConf.nix
     ];
 
   # Bootloader
