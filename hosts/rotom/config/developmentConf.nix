@@ -34,6 +34,14 @@
     ];
   };
 
+  edgelordkirito.programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    package = unstable.neovim;
+  };
+
   programs.nix-ld.enable = true;
 
   networking.firewall.allowedTCPPorts = [ 9003 ];
