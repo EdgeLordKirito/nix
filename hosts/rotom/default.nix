@@ -4,18 +4,18 @@
   imports =
     [
       # Include the results of the hardware scan.
-      ../../modules/configuration.nix
-      ../../modules/users.nix
-      ../../modules/locale.nix
-      ../../modules/terminal.nix
-      ../../modules/shell.nix
+      #../../modules/configuration.nix
+      #../../modules/users.nix
+      #../../modules/locale.nix
+      #../../modules/terminal.nix
+      #../../modules/shell.nix
       #../../modules/font.nix
       #../../modules/dev.nix
-      ../../modules/de.nix
-      ../../modules/vpn.nix
+      #../../modules/de.nix
+      #../../modules/vpn.nix
       #../../modules/virtualisationConfig.nix
-      ../../modules/art.nix
-      ../../modules/dev
+      #../../modules/art.nix
+      #../../modules/dev
       ./config/developmentConf.nix
       ./config/virtualisationConf.nix
       ./config/fontConf.nix
@@ -37,6 +37,8 @@
       ./config/vpnConf.nix
       ./config/keyboardConf.nix
       ./config/desktopEnvironmentConf.nix
+
+      ./users/edgelordkirito.nix
     ];
 
   # Bootloader
