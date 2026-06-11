@@ -15,5 +15,6 @@
     wl-clipboard
     unzip
     starship
+    dig
   ];
 }

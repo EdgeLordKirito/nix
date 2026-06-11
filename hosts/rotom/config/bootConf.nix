@@ -2,5 +2,5 @@
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_7_0;
+  #boot.kernelPackages = pkgs.linuxPackages_7_0;
 }
