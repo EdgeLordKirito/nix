@@ -17,5 +17,8 @@
     kdePackages.konsole
     kdePackages.oxygen
     kdePackages.oxygen-icons
+    kdePackages.kwallet
+    kdePackages.kwallet-pam
+    kdePackages.kwalletmanager
   ];
 }
