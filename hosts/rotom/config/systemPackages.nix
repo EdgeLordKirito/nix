@@ -16,5 +16,6 @@
     unzip
     starship
     dig
+    kdePackages.filelight
   ];
 }
