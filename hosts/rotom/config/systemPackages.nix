@@ -17,5 +17,6 @@
     starship
     dig
     kdePackages.filelight
+    ansible
   ];
 }
