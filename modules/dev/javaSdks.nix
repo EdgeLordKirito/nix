@@ -58,7 +58,7 @@
         );
     in
     {
-      options.programs.javaSdks = {
+      options.edgelordkirito.programs.javaSdks = {
         enable = mkEnableOption "Java SDK management";
         homeJavaPackage = mkOption {
           type = types.nullOr types.package;
