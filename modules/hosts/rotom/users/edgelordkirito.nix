@@ -1,12 +1,21 @@
-{ config, pkgs, unstable, ... }:
+# modules/hosts/rotom/config/edgelordkirito.nix
 {
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.edgelordkirito = {
-    isNormalUser = true;
-    description = "EdgeLordKirito";
-    extraGroups = [ "networkmanager" "wheel"];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-    ];
-  };
+  flake.modules.nixos.rotom =
+    {
+      pkgs,
+      ...
+    }:
+    {
+      users.users.edgelordkirito = {
+        isNormalUser = true;
+        description = "EdgeLordKirito";
+        extraGroups = [
+          "networkmanager"
+          "wheel"
+        ];
+        shell = pkgs.zsh;
+        packages = with pkgs; [
+        ];
+      };
+    };
 }
