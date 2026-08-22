@@ -5,6 +5,7 @@
     modules = with inputs.self.modules.nixos; [
       nixpkgsConfig
       htpc
+      locale
       inputs.disko.nixosModules.disko
       inputs.preservation.nixosModules.default
       ../../hosts/htpc/hardware-configuration.nix

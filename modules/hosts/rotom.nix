@@ -12,6 +12,8 @@
       nixpkgsConfig
       rotom
 
+      locale
+
       javaSdks
       dotnetSdks
       neovim
