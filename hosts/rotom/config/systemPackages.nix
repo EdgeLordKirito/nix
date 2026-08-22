@@ -1,4 +1,9 @@
-{ config, pkgs, unstable, ... }:
+{
+  config,
+  pkgs,
+  unstable,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
     bitwarden-desktop
@@ -18,5 +23,6 @@
     dig
     kdePackages.filelight
     ansible
+    tree
   ];
 }
