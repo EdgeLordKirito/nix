@@ -26,6 +26,7 @@
         kdePackages.filelight
         ansible
         rofi
+        hello
       ];
     };
 }
