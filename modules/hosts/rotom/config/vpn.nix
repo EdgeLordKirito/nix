@@ -3,6 +3,7 @@
   flake.modules.nixos.rotom =
     {
       pkgs,
+      unstable,
       ...
     }:
     {
