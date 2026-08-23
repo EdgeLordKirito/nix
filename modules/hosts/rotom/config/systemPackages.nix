@@ -27,6 +27,7 @@
         ansible
         rofi
         hello
+        remmina
       ];
     };
 }
