@@ -20,7 +20,7 @@
         users.htpc = {
           directories = [
             ".ssh"
-            ".mozilla"
+            #".mozilla"
             "Music"
             "Videos"
             "Documents"
