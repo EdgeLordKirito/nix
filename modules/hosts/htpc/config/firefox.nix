@@ -178,5 +178,35 @@
           # more below
         };
       };
+
+      xdg.desktopEntries = {
+        edgelordkirito = {
+          name = "Firefox (edgelordkirito)";
+          exec = "firefox -P edgelordkirito %U";
+          icon = "firefox";
+          categories = [
+            "Network"
+            "WebBrowser"
+          ];
+        };
+        mhouney = {
+          name = "Firefox (mhouney)";
+          exec = "firefox -P mhouney %U";
+          icon = "firefox";
+          categories = [
+            "Network"
+            "WebBrowser"
+          ];
+        };
+        guest = {
+          name = "Firefox (Guest)";
+          exec = "firefox -P guest %U";
+          icon = "firefox";
+          categories = [
+            "Network"
+            "WebBrowser"
+          ];
+        };
+      };
     };
 }
