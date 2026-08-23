@@ -24,7 +24,7 @@
         url = "https://start.duckduckgo.com";
         search = {
           force = true;
-          default = "DuckDuckGo";
+          default = "ddg";
           engines = {
             "google".metaData.hidden = true;
             "bing".metaData.hidden = true;
@@ -40,7 +40,7 @@
         url = "https://www.google.com";
         search = {
           force = true;
-          default = "Google";
+          default = "google";
           engines = {
             "ddg".metaData.hidden = true;
             "bing".metaData.hidden = true;
