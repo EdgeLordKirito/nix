@@ -89,6 +89,7 @@
               youtube-nonstop
               return-youtube-dislikes
               bitwarden
+              plasma-integration
               # add more here as needed
             ];
           };
@@ -107,6 +108,7 @@
               youtube-nonstop
               return-youtube-dislikes
               bitwarden
+              plasma-integration
               # add more here as needed
             ];
           };
@@ -125,6 +127,7 @@
               youtube-nonstop
               return-youtube-dislikes
               bitwarden
+              plasma-integration
               # add more here as needed
             ];
           };
@@ -162,6 +165,7 @@
               youtube-nonstop
               return-youtube-dislikes
               bitwarden
+              plasma-integration
               # add more here as needed
             ];
           };
