@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.htpc =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     let
       # shared custom engine definition, reused across all profiles' hide-lists
       braveEngineDef = {
@@ -26,11 +26,11 @@
           force = true;
           default = "DuckDuckGo";
           engines = {
-            "Google".metaData.hidden = true;
-            "Bing".metaData.hidden = true;
-            "Amazon.com".metaData.hidden = true;
-            "eBay".metaData.hidden = true;
-            "Wikipedia (en)".metaData.hidden = true;
+            "google".metaData.hidden = true;
+            "bing".metaData.hidden = true;
+            "amazondotcom-us".metaData.hidden = true;
+            "ebay".metaData.hidden = true;
+            "wikipedia".metaData.hidden = true;
           };
         };
       };
@@ -42,11 +42,11 @@
           force = true;
           default = "Google";
           engines = {
-            "DuckDuckGo".metaData.hidden = true;
-            "Bing".metaData.hidden = true;
-            "Amazon.com".metaData.hidden = true;
-            "eBay".metaData.hidden = true;
-            "Wikipedia (en)".metaData.hidden = true;
+            "ddg".metaData.hidden = true;
+            "bing".metaData.hidden = true;
+            "amazondotcom-us".metaData.hidden = true;
+            "ebay".metaData.hidden = true;
+            "wikipedia".metaData.hidden = true;
           };
         };
       };
@@ -59,12 +59,12 @@
           default = "Brave Search";
           engines = {
             "Brave Search" = braveEngineDef;
-            "Google".metaData.hidden = true;
-            "DuckDuckGo".metaData.hidden = true;
-            "Bing".metaData.hidden = true;
-            "Amazon.com".metaData.hidden = true;
-            "eBay".metaData.hidden = true;
-            "Wikipedia (en)".metaData.hidden = true;
+            "google".metaData.hidden = true;
+            "ddg".metaData.hidden = true;
+            "bing".metaData.hidden = true;
+            "amazondotcom-us".metaData.hidden = true;
+            "ebay".metaData.hidden = true;
+            "wikipedia".metaData.hidden = true;
           };
         };
       };
@@ -72,8 +72,8 @@
     {
       programs.firefox = {
         enable = true;
+        configPath = "${config.xdg.configHome}/mozilla/firefox";
         profiles = {
-
           default = {
             id = 0;
             isDefault = true;
