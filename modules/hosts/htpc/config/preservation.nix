@@ -26,6 +26,7 @@
             "Documents"
             "Downloads"
             "Pictures"
+            "Desktop"
             ".config"
             "nix"
           ];

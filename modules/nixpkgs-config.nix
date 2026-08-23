@@ -8,16 +8,16 @@ let
       "electron-39.8.10"
     ];
   };
-
+  overlays = [ inputs.nur.overlays.default ];
   unstable = import inputs.nixpkgs-unstable {
-    inherit system;
+    inherit system overlays;
     config = nixpkgsConfig;
   };
 in
 {
   flake.modules.nixos.nixpkgsConfig = {
     nixpkgs = {
-      inherit system;
+      inherit system overlays;
       config = nixpkgsConfig;
     };
   };
