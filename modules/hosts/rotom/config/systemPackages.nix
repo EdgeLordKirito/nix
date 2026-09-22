@@ -26,7 +26,6 @@
         rofi
         hello
         zip
-        cisco-packet-tracer_9
       ];
     };
 }
