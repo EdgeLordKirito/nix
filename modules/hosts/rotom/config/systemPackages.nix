@@ -8,8 +8,6 @@
     }:
     {
       environment.systemPackages = with pkgs; [
-        bitwarden-desktop
-        bitwarden-cli
         obsidian
         element-desktop
         krita
@@ -27,7 +25,8 @@
         ansible
         rofi
         hello
-        remmina
+        zip
+        cisco-packet-tracer_9
       ];
     };
 }
