@@ -28,6 +28,7 @@
         zip
         file
         openssl
+        cisco-packet-tracer_9
       ];
     };
 }
