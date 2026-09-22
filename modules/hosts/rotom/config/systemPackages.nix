@@ -26,6 +26,8 @@
         rofi
         hello
         zip
+        file
+        openssl
       ];
     };
 }
