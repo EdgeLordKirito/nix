@@ -4,31 +4,44 @@
     {
       config,
       lib,
+      pkgs,
       ...
     }:
-    with lib;
     let
       cfg = config.edgelordkirito.programs.dotnetSdks;
+      combinedDotnet = lib.pkgs.dotnetCorePackages.combinePackages (
+        [ cfg.primaryDotnetPackage ] ++ cfg.extraDotnetPackages
+      );
     in
     {
       options.edgelordkirito.programs.dotnetSdks = {
-        enable = mkEnableOption "dotnet SDK management";
-        primaryDotnetPackage = mkOption {
-          type = types.package;
-          default = null;
-          description = "Primary dotnet package";
+        enable = lib.mkEnableOption "dotnet SDK management";
+
+        primaryDotnetPackage = lib.mkOption {
+          type = lib.types.package;
+          default = pkgs.dotnetCorePackages.sdk_10_0;
+          defaultText = lib.literalExpression "pkgs.dotnetCorePackages.sdk_10_0";
+          description = "Primary dotnet SDK. Its host (`dotnet` executable) is the one used in the combined root.";
         };
-        extraDotnetPackages = mkOption {
-          type = types.listOf types.package;
+
+        extraDotnetPackages = lib.mkOption {
+          type = lib.types.listOf lib.types.package;
           default = [ ];
-          description = "Additional dotnet SDKs to install";
+          example = lib.literalExpression ''
+            [
+              pkgs.dotnetCorePackages.sdk_9_0
+              pkgs.dotnetCorePackages.sdk_8_0
+            ]
+          '';
+          description = "Additional dotnet SDKs or runtimes to merge into the primary root.";
         };
       };
-      config = mkIf cfg.enable {
-        environment.systemPackages = [ cfg.primaryDotnetPackage ] ++ cfg.extraDotnetPackages;
-        environment.variables = {
-          DOTNET_BIN = "${cfg.primaryDotnetPackage}/bin/dotnet";
-          DOTNET_ROOT = "${cfg.primaryDotnetPackage}/share/dotnet";
+      config = lib.mkIf cfg.enable {
+        environment.systemPackages = [ combinedDotnet ];
+        environment.sessionVariables = {
+          DOTNET_BIN = "${combinedDotnet}/bin/dotnet";
+          DOTNET_ROOT = "${combinedDotnet}/share/dotnet";
+          DOTNET_CLI_TELEMETRY_OPTOUT = "1";
         };
       };
     };
