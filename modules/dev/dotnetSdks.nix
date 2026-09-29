@@ -9,7 +9,7 @@
     }:
     let
       cfg = config.edgelordkirito.programs.dotnetSdks;
-      combinedDotnet = lib.pkgs.dotnetCorePackages.combinePackages (
+      combinedDotnet = pkgs.dotnetCorePackages.combinePackages (
         [ cfg.primaryDotnetPackage ] ++ cfg.extraDotnetPackages
       );
     in
