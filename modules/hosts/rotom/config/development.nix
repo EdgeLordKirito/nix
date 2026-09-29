@@ -14,7 +14,10 @@
       edgelordkirito.programs.dotnetSdks = {
         enable = true;
         primaryDotnetPackage = pkgs.dotnetCorePackages.sdk_10_0;
-        extraDotnetPackages = [ pkgs.dotnetCorePackages.sdk_9_0 pkgs.dotnetCorePackages.sdk_8_0 ];
+        extraDotnetPackages = [
+          pkgs.dotnetCorePackages.sdk_9_0
+          pkgs.dotnetCorePackages.sdk_8_0
+        ];
       };
 
       edgelordkirito.programs.neovim = {
