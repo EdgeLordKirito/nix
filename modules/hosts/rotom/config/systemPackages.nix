@@ -14,6 +14,7 @@
         kitty
         wget
         git
+        git-lfs
         yazi
         killall
         stow
